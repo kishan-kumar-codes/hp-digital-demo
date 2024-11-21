@@ -17,9 +17,80 @@ const Widget: React.FC = () => {
     (state: RootState) => state.widget.customizeBackground
   );
 
+  const customizeRadius = useSelector(
+    (state: RootState) => state.widget.customizeRadius
+  );
+  const customizeBorder = useSelector(
+    (state: RootState) => state.widget.customizeBorder
+  );
+
+  const customizeSize = useSelector(
+    (state: RootState) => state.widget.customizeSize
+  );
+
+  const displayLayout = useSelector(
+    (state: RootState) => state.widget.noOfLayout
+  );
+  const customizeShadow = useSelector(
+    (state: RootState) => state.widget.customizeShadow
+  );
+  const setCustomizeShadow = useSelector(
+    (state: RootState) => state.widget.setCustomizeShadow
+  );
+
+  const customizeTitleText = useSelector(
+    (state: RootState) => state.widget.customizeTitleText
+  );
+  const customizeWidgetTitle = useSelector(
+    (state: RootState) => state.widget.customizeWidgetTitle
+  );
+  const isFullScreen = useSelector(
+    (state: RootState) => state.widget.isFullScreen
+  );
+  const customizeTextBgColor = useSelector(
+    (state: RootState) => state.widget.customizeTextBackGround
+  );
+  const displayHeight = useSelector(
+    (state: RootState) => state.widget.layoutWidgetHeight
+  );
+
+  const selectedFonts = useSelector(
+    (state: RootState) => state.widget.customizeFont
+  );
+
+  const noOfReviewsToShows = useSelector(
+    (state: RootState) => state.widget.noofReviewstoShow
+  );
+  const handleSmallScreen = useSelector(
+    (state: RootState) => state.widget.handleSmallScreen
+  );
+
+  const rotateSlides = useSelector(
+    (state: RootState) => state.widget.rotateSlides
+  );
+
+  const transitionStyle = useSelector(
+    (state: RootState) => state.widget.transitionStyle
+  );
+
+  const transitionSpeed = useSelector(
+    (state: RootState) => state.widget.transitionSpeed
+  );
+  const showSlideArrows = useSelector(
+    (state: RootState) => state.widget.showSlideArrows
+  );
+
+  const showSlideDots = useSelector(
+    (state: RootState) => state.widget.showSlideDots
+  );
+
+  const displayReview = useSelector(
+    (state: RootState) => state.widget.displayReview
+  );
 
 
-  
+
+
   useEffect(() => {
     // Fetch the dynamically generated script filename
     fetch("/api/widget/get-widget-filename")
@@ -45,7 +116,27 @@ const Widget: React.FC = () => {
         displayMode: "compact",
         showAvatar: false,
         showRatings: true,
-        customizeBackground:customizeBackground
+        customizeBackground:customizeBackground,
+        customizeRadius:customizeRadius,
+        customizeBorder:customizeBorder,
+        customizeSize:customizeSize,
+        displayLayout:displayLayout,
+        customizeShadow:customizeShadow,
+        setCustomizeShadow:setCustomizeShadow,
+        customizeTitleText:customizeTitleText,
+        customizeWidgetTitle:customizeWidgetTitle,
+        isFullScreen:isFullScreen,
+        customizeTextBgColor:customizeTextBgColor,
+        displayHeight:displayHeight,
+        selectedFonts:selectedFonts,
+        noOfReviewsToShows:noOfReviewsToShows,
+        handleSmallScreen:handleSmallScreen,
+        rotateSlides:rotateSlides,
+        transitionStyle:transitionStyle,
+        transitionSpeed:transitionSpeed,
+        showSlideArrows:showSlideArrows,
+        showSlideDots:showSlideDots,
+        displayReview:displayReview
       });
     }
   }, [scriptLoaded]);

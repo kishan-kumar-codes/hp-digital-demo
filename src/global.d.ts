@@ -41,6 +41,26 @@ export interface WidgetConfig {
   showRatings?: boolean;
   displayMode?: string;
   showAvatar?: boolean;
-  customizeBackground?:any
+  customizeBackground?:string;
+  customizeRadius?:any;
+  customizeBorder?:any;
+  customizeSize?:any;
+  displayLayout?:any;
+  customizeShadow?:any;
+  setCustomizeShadow?:any;
+  customizeTitleText?:any;
+  customizeWidgetTitle?:any;
+  isFullScreen?:any;
+  customizeTextBgColor?:any;
+  displayHeight?:any;
+  selectedFonts?:any;
+  noOfReviewsToShows?:any;
+  handleSmallScreen?:any;
+  rotateSlides?:any;
+  transitionStyle?:any;
+  transitionSpeed?:any;
+  showSlideArrows?:any;
+  showSlideDots?:any;
+  displayReview?:any;
 }
 
