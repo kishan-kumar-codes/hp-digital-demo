@@ -1,4 +1,10 @@
+"use client";
 import React from "react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const typography: React.CSSProperties = {
   color: "#FFF",
@@ -12,6 +18,11 @@ const typography: React.CSSProperties = {
   height: "100%",
 };
 
+type NoteItem = {
+  icon: React.ReactNode;
+  notes: string;
+};
+
 type CitationRowProps = {
   site: string;
   type: string;
@@ -20,22 +31,12 @@ type CitationRowProps = {
   fontSize?: string;
   fontWeight?: number;
   width?: string;
-  notes: React.ReactNode;
-  bgColor?: string; // Optional background color for the row
+  notes: NoteItem[];
+  bgColor?: string;
 };
 
-/**
- * CitationRow component
- *
- * Renders a row displaying citation details with customizable background color. The row includes columns for site, type,
- * authority, value, and notes.
- *
- * @param {CitationRowProps} props - The properties for the CitationRow component.
- * @returns {JSX.Element} The rendered component.
- */
 export const CitationRow: React.FC<CitationRowProps> = ({
   site,
-
   type,
   authority,
   fontWeight = 400,
@@ -45,7 +46,8 @@ export const CitationRow: React.FC<CitationRowProps> = ({
 }) => {
   return (
     <div
-      className={`flex w-full justify-center items-center text-xs md:text-lg h-[45px] bg-[${bgColor}]`}>
+      className={`flex w-full justify-center items-center text-xs md:text-lg h-[45px]`}
+      style={{ backgroundColor: bgColor }}>
       <div className="flex p-2 w-full gap-2 justify-between items-center">
         <div className="flex gap-1 flex-1 h-[40px] justify-center items-center">
           <span
@@ -89,7 +91,22 @@ export const CitationRow: React.FC<CitationRowProps> = ({
           </span>
         </div>
         <div className="flex flex-1 gap-2 h-[40px] justify-center items-center">
-          {notes}
+          {notes.map((note, index) => (
+            <Popover key={index}>
+              <PopoverTrigger asChild>
+                <button className="cursor-pointer">{note.icon}</button>
+              </PopoverTrigger>
+              <PopoverContent className="w-60 bg-yellow-300">
+                <div className="grid gap-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-muted-foreground">
+                      {note.notes}
+                    </p>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+          ))}
         </div>
       </div>
     </div>

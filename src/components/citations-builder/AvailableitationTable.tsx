@@ -49,7 +49,7 @@ const TableHeader: React.FC = (): JSX.Element => {
       <div className="flex w-full justify-center -mt-6 py-1 items-center h-[45px] bg-[#631363] rounded-t-3xl">
         <div className="flex p-2 text-xs md:text-lg w-full gap-2 justify-around items-center">
           <div className="flex gap-1 h-[40px] justify-between items-center">
-            <span style={{ ...typography }}>Citation Site</span> {" "}
+            <span style={{ ...typography }}>Citation Site</span>{" "}
             <span className="mt-0.5 font-[13px]">
               {/* <BuildermergeSvgs /> */}
             </span>
@@ -101,90 +101,118 @@ const AvailableitationTable: React.FC = (): JSX.Element => {
         authority="94"
         value="Very High"
         bgColor="#ffffff"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
       />
       <CitationRow
-        site="google.com"
+        site="maps.apple.com"
         type="General Directory"
-        authority="94"
-        value="Very High"
+        authority="81"
+        value=" High"
         bgColor="#f2f2f2"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
       />
       <CitationRow
-        site="google.com"
+        site="mamta.com"
+        type="General Directory"
+        authority="76"
+        bgColor="#ffffff"
+        value="Very High"
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
+      />
+      <CitationRow
+        site="yelp.com"
+        type="General Directory"
+        authority="82"
+        bgColor="#f2f2f2"
+        value="Very High"
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
+      />
+      <CitationRow
+        site="avvo.com"
+        type="General Directory"
+        authority="51"
+        bgColor="#ffffff"
+        value=" High"
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
+      />
+      <CitationRow
+        site="botw.org"
+        type="General Directory"
+        authority="72"
+        bgColor="#f2f2f2"
+        value="Very High"
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
+      />
+      <CitationRow
+        site="ezlocal.com"
         type="General Directory"
         authority="94"
         bgColor="#ffffff"
-        value="Very High"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
-      />
-      <CitationRow
-        site="google.com"
-        type="General Directory"
-        authority="94"
-        bgColor="#f2f2f2"
-        value="Very High"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
-      />
-      <CitationRow
-        site="google.com"
-        type="General Directory"
-        authority="94"
-        bgColor="#ffffff"
-        value="Very High"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
-      />
-      <CitationRow
-        site="google.com"
-        type="General Directory"
-        authority="94"
-        bgColor="#f2f2f2"
-        value="Very High"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
-      />
-      <CitationRow
-        site="google.com"
-        type="General Directory"
-        authority="94"
-        bgColor="#ffffff"
-        value="Very High"
-        notes={
-          <>
-            <CallSvgs />
-            <ContactSvgs />
-          </>
-        }
+        value=" High"
+        notes={[
+          {
+            icon: <CallSvgs key="call" />,
+            notes: "Requires phone verification after submission.",
+          },
+          {
+            icon: <ContactSvgs key="contact" />,
+            notes: "Requires Business Owner Verification",
+          }, // You can add specific notes here
+        ]}
       />
     </div>
   );

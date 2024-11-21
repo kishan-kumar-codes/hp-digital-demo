@@ -1,30 +1,45 @@
-"use client"
-import React, { useState } from 'react'
-import HeadBar from './HeadBar'
-import BuilderItemCard from './BuilderItemCard'
-import { BuilderDataSvg, BuilderFourSquareSvg, BuilderGpsSvg, BuilderNeustarSvg, BuilderYPSvg } from '@/svgs/seo-screens/svgs'
-import { DisableLocationSvgs } from '@/svgs/citations-builder/svgs'
-import { InfoTooltip } from './Tooltip'
-import BuilderFilterCard from './BuilderFilterCard'
-import CitationTable from './ExistingCitationTable'
-import AvailableitationTable from './AvailableitationTable'
-import BuilderModel from './BuilderModel'
-import { InfoSvgs } from '@/svgs/seo-screens/svgs'
+"use client";
+import React, { useState } from "react";
+import HeadBar from "./HeadBar";
+import BuilderItemCard from "./BuilderItemCard";
+import {
+  BuilderDataSvg,
+  BuilderFourSquareSvg,
+  BuilderGpsSvg,
+  BuilderNeustarSvg,
+  BuilderYPSvg,
+} from "@/svgs/seo-screens/svgs";
+import { DisableLocationSvgs } from "@/svgs/citations-builder/svgs";
+import { InfoTooltip } from "./Tooltip";
+import BuilderFilterCard from "./BuilderFilterCard";
+import CitationTable from "./ExistingCitationTable";
+import AvailableitationTable from "./AvailableitationTable";
+import BuilderModel from "./BuilderModel";
+import { InfoSvgs } from "@/svgs/seo-screens/svgs";
+import { useRouter } from "next/navigation";
 
 const Typography: React.CSSProperties = {
-    fontSize: "20px",
-    color: "#6D6D6D",
-    fontFamily: "Arial",
-    fontStyle: "normal",
-    fontWeight: 700,
-    lineHeight: "normal",
-  };
-
+  fontSize: "20px",
+  color: "#6D6D6D",
+  fontFamily: "Arial",
+  fontStyle: "normal",
+  fontWeight: 700,
+  lineHeight: "normal",
+};
 
 const CitationFinal: React.FC = (): JSX.Element => {
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
-  const openModal = () => setShowModal(true);
+  // const openModal = () => setShowModal(true);
+  const openModal = async () => {
+    try {
+      await router.push("/onboarding/education/final");
+      // Optionally, handle successful navigation here if needed
+    } catch (error) {
+      console.error("An error occurred during navigation:", error);
+    }
+  };
   const closeModal = () => setShowModal(false);
   return (
     <>
@@ -45,6 +60,9 @@ const CitationFinal: React.FC = (): JSX.Element => {
                   id={"Foursquare"}
                   labelSvg={<BuilderFourSquareSvg />}
                   titleSvg={<DisableLocationSvgs />}
+                  message={
+                    "Foursquare, is a local search-and-discovery mobile app developed by Foursquare Labs Inc."
+                  }
                   isLocation
                 />
                 <BuilderItemCard
@@ -52,6 +70,9 @@ const CitationFinal: React.FC = (): JSX.Element => {
                   id={"Data Axle"}
                   labelSvg={<BuilderDataSvg />}
                   titleSvg={<DisableLocationSvgs />}
+                  message={
+                    "Data Axle, formerly Infogroup, is a provider of data, technology and marketing services for salespeople, marketers, and professionals."
+                  }
                   isLocation
                 />
                 <BuilderItemCard
@@ -59,6 +80,7 @@ const CitationFinal: React.FC = (): JSX.Element => {
                   id={"Neustar"}
                   labelSvg={<BuilderNeustarSvg />}
                   titleSvg={<DisableLocationSvgs />}
+                  message={""}
                   isLocation
                 />
                 <BuilderItemCard
@@ -67,6 +89,7 @@ const CitationFinal: React.FC = (): JSX.Element => {
                   labelSvg={<BuilderYPSvg />}
                   titleSvg={<DisableLocationSvgs />}
                   isLocation
+                  message={""}
                 />
                 <BuilderItemCard
                   label={"GPS Network"}
@@ -74,6 +97,7 @@ const CitationFinal: React.FC = (): JSX.Element => {
                   labelSvg={<BuilderGpsSvg />}
                   titleSvg={<DisableLocationSvgs />}
                   isLocation
+                  message={""}
                 />
 
                 {/* Existing citations and filter cards */}
@@ -85,7 +109,7 @@ const CitationFinal: React.FC = (): JSX.Element => {
         <div className="flex w-full bg-[#F4F4F4] rounded-3xl mt-2 md:mt-9  md:bg-[#E0E0E0] flex-col">
           <div className="flex w-fit md:hidden md:w-full my-3 gap-1 items-center px-5">
             <span className="" style={{ ...Typography }}>
-              Existing Citations (0) 
+              Existing Citations (0)
               {/* <InfoSvgs /> */}
             </span>
             <div className="ml-2 -mt-5">
@@ -149,7 +173,7 @@ const CitationFinal: React.FC = (): JSX.Element => {
         <div className="flex md:hidden w-full mt-10 justify-center items-center bg-[#40F440] h-[55px] rounded-t-3xl"></div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default CitationFinal
+export default CitationFinal;

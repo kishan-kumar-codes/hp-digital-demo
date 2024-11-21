@@ -40,37 +40,32 @@ interface Option {
   label: string;
 }
 
-const members = [
-  { value: "option1", label: "option1" },
-  { value: "option2", label: "option2" },
-  { value: "option3", label: "option3" },
-  { value: "option4", label: "option4" },
-  { value: "option5", label: "option5" },
-  { value: "option6", label: "option6" },
-];
-
 const industryOptions: Option[] = [
-  { value: "technology", label: "Technology" },
-  { value: "finance", label: "Finance" },
-  { value: "healthcare", label: "Healthcare" },
-  { value: "manufacturing", label: "Manufacturing" },
-  { value: "retail", label: "Retail" },
+  {
+    value: "Smart Thermostat Installation",
+    label: "Smart Thermostat Installation",
+  },
+  {
+    value: "Refrigeration Services (for Restaurants/Businesses)",
+    label: "Refrigeration Services (for Restaurants/Businesses)",
+  },
+  {
+    value: "Roof Coating for Energy Efficiency",
+    label: " Roof Coating for Energy Efficiency",
+  },
+  {
+    value: "Eco-Friendly Carpet Cleaning Services",
+    label: "Eco-Friendly Carpet Cleaning Services",
+  },
+  { value: "Pet Stain and Odor Removal", label: "Pet Stain and Odor Removal" },
 ];
 
 const departmentOptions: Option[] = [
-  { value: "engineering", label: "Engineering" },
-  { value: "marketing", label: "Marketing" },
-  { value: "humanResources", label: "Human Resources" },
-  { value: "sales", label: "Sales" },
-  { value: "operations", label: "Operations" },
-];
-
-const softwareOptions: Option[] = [
-  { value: "erp", label: "ERP System" },
-  { value: "crm", label: "CRM Software" },
-  { value: "projectManagement", label: "Project Management Tool" },
-  { value: "businessIntelligence", label: "Business Intelligence Platform" },
-  { value: "collaborationSuite", label: "Collaboration Suite" },
+  { value: "Roofing", label: "Roofing" },
+  { value: "Hvac", label: "Hvac" },
+  { value: "Carpet Cleaning", label: "Carpet Cleaning" },
+  { value: "Fieldpiece", label: "Fieldpiece" },
+  { value: "PBR Metal Panel", label: "PBR Metal Panel" },
 ];
 
 /**
@@ -200,31 +195,31 @@ const CitizanBuilderData = (): JSX.Element => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <SelectComponent
                 options={industryOptions}
-                placeholder="Select an industry"
+                placeholder="Select an categories"
                 label="Industry"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={departmentOptions}
-                placeholder="Select a department"
+                options={industryOptions}
+                placeholder="Select an categories"
                 label="Department"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={softwareOptions}
-                placeholder="Select a software solution"
+                options={industryOptions}
+                placeholder="Select an categories"
                 label="Software Solutions"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={departmentOptions}
-                placeholder="Select a department"
+                options={industryOptions}
+                placeholder="Select an categories"
                 label="Department"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={softwareOptions}
-                placeholder="Select a software solution"
+                options={industryOptions}
+                placeholder="Select an categories"
                 label="Software Solutions"
                 onSelect={handleSelect}
               />
@@ -238,32 +233,32 @@ const CitizanBuilderData = (): JSX.Element => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <SelectComponent
-                options={industryOptions}
-                placeholder="Select an industry"
+                options={departmentOptions}
+                placeholder="Select a service"
                 label="Industry"
                 onSelect={handleSelect}
               />
               <SelectComponent
                 options={departmentOptions}
-                placeholder="Select a department"
+                placeholder="Select a service"
                 label="Department"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={softwareOptions}
-                placeholder="Select a software solution"
+                options={departmentOptions}
+                placeholder="Select a service"
                 label="Software Solutions"
                 onSelect={handleSelect}
               />
               <SelectComponent
                 options={departmentOptions}
-                placeholder="Select a department"
+                placeholder="Select a service"
                 label="Department"
                 onSelect={handleSelect}
               />
               <SelectComponent
-                options={softwareOptions}
-                placeholder="Select a software solution"
+                options={departmentOptions}
+                placeholder="Select a service"
                 label="Software Solutions"
                 onSelect={handleSelect}
               />
@@ -311,7 +306,7 @@ const CitizanBuilderData = (): JSX.Element => {
       <div className=" md:hidden flex flex-col items-center md:items-end w-full py-4 space-y-4">
         <button
           onClick={handleNext}
-          className="bg-[#40F440] flex justify-center items-center w-full px-6 py-2 pb-2 font-bold text-black rounded-md lg:rounded-xl text-lg h-[33px] text-[20px]">
+          className="bg-[#40F440] flex justify-center items-center w-full px-6 py-2 lg:py-3 pb-2 font-bold text-black rounded-md lg:rounded-xl text-lg h-[33px] text-[20px]">
           <Link href="/citations-builder/final">Save</Link>
         </button>
         <div className="flex w-full justify-around ">

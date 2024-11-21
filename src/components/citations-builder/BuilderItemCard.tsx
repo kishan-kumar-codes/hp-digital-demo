@@ -18,6 +18,7 @@ interface BuilderItemCardProps {
   labelSvg: React.ReactElement;
   titleSvg: React.ReactElement;
   isLocation?: boolean;
+  message: string;
 }
 
 /**
@@ -41,6 +42,7 @@ const BuilderItemCard = ({
   labelSvg,
   titleSvg,
   isLocation = false,
+  message,
 }: BuilderItemCardProps): JSX.Element => {
   return (
     <div
@@ -64,7 +66,7 @@ const BuilderItemCard = ({
         </div>
         <div className="flex gap-2 ">
           {/* Tooltip icon and optional location icon */}
-          <TooltipIcon />
+          <TooltipIcon message={message} />
           {isLocation && titleSvg}
         </div>
       </div>

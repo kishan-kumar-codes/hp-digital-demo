@@ -13,6 +13,7 @@ interface UploadDocumentModalProps {
   onSaveFolderName: () => void;
   newFolderName: string;
   setNewFolderName: (value: string) => void;
+  documents: any;
 }
 
 const UploadDocumentModal: FC<UploadDocumentModalProps> = ({
@@ -54,7 +55,7 @@ const UploadDocumentModal: FC<UploadDocumentModalProps> = ({
           onClick={handleClick}
           onToggle={handleToggle}
         />
-      ) :  title === "Add Document" && step === 3 ? (
+      ) : title === "Add Document" && step === 3 ? (
         <ChooseFolder
           documentType={documentType}
           toggleDropDown={toggleDropDown}
@@ -62,7 +63,7 @@ const UploadDocumentModal: FC<UploadDocumentModalProps> = ({
           onToggle={handleToggle}
           documents={documents}
         />
-      ) :(
+      ) : (
         <CreateFolderInput
           newFolderName={newFolderName}
           setNewFolderName={setNewFolderName}
