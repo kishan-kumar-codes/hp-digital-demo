@@ -105,9 +105,10 @@ const reviewCard = Array.from({ length: 25 }, (_, index) => ({
 
 interface ReviewListProps {
     showRatings?: boolean;
+    config?:any
 }
 
-const ReviewList: React.FC<ReviewListProps> = ({ showRatings }) => {
+const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
     const reviews = useSelector((state: RootState) => state.reviews.reviews);
     const [phoneLayout, setPhoneLayout] = useState("Desktop");
     const dispatch = useDispatch();
@@ -115,9 +116,9 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings }) => {
     const { showCaseReview, selectReviews, widgetDesign, carouselWidget } =
       useWidgetSelectors();
   
-    const customizeBackground = useSelector(
-      (state: RootState) => state.widget.customizeBackground
-    );
+    // const customizeBackground = useSelector(
+    //   (state: RootState) => state.widget.customizeBackground
+    // );
     const customizeRadius = useSelector(
       (state: RootState) => state.widget.customizeRadius
     );
@@ -229,10 +230,10 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings }) => {
 
         <div
         style={{
-          backgroundColor: customizeBackground,
+          backgroundColor: config.customizeBackground,
           borderRadius: `${customizeRadius}px`,
         }}
-        className={`${isFullScreen ? "w-full" : "w-3/5"} flex-col h-fit md:py-10 py-4 px-1 md:px-4 ${customizeShadow ? "shadow-lg shadow-current" : "shadow-none"} ${isFullScreen ? "block md:block" : "hidden md:block"}`}>
+        className={`${isFullScreen ? "w-full" : " w-full"} flex-col h-fit md:py-10 py-4 px-1 md:px-4 ${customizeShadow ? "shadow-lg shadow-current" : "shadow-none"} ${isFullScreen ? "block md:block" : "hidden md:block"}`}>
         <div className="flex px-2 md:px-0 justify-between">
           <div
             style={{

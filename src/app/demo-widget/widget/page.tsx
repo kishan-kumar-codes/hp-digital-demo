@@ -4,11 +4,22 @@
 import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 const Widget: React.FC = () => {
   const [scriptSrc, setScriptSrc] = useState<string | null>(null);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
+
+
+  const customizeBackground = useSelector(
+    (state: RootState) => state.widget.customizeBackground
+  );
+
+
+
+  
   useEffect(() => {
     // Fetch the dynamically generated script filename
     fetch("/api/widget/get-widget-filename")
@@ -34,6 +45,7 @@ const Widget: React.FC = () => {
         displayMode: "compact",
         showAvatar: false,
         showRatings: true,
+        customizeBackground:customizeBackground
       });
     }
   }, [scriptLoaded]);

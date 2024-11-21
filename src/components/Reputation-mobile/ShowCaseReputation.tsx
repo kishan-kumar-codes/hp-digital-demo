@@ -45,6 +45,8 @@ export default function ShowcaseReview({ bundle, bundleLoading }: ShowcaseReview
   const [showInput, setShowInput] = useState(false);
   const [bundleValue, setBundleValue] = useState('');
   const [isCopy, setIsCopy] = useState(false);
+  const [listWidget, setListWidget] = useState(false);
+  const [crowsalWidget, setCrowsalWidget] = useState(false);
 
   useEffect(() => {
     if (bundle) {
@@ -75,7 +77,7 @@ export default function ShowcaseReview({ bundle, bundleLoading }: ShowcaseReview
       const fileName = data.filename;
       let filenameWithpoutExtension = fileName.split('.').slice(0, -1).join('.');
       console.log(filenameWithpoutExtension);
-let value = `<div data-embed-placeholder="1"><script src="https://www.HubSpark.com/external/showcase-reviews/embed/${filenameWithpoutExtension}?id=1"></script></div>`
+      let value = `<div data-embed-placeholder="1"><script src="https://www.HubSpark.com/external/showcase-reviews/embed/${filenameWithpoutExtension}?id=1"></script></div>`
       setBundleValue(value);
       console.log(fileName)
     } catch (error) {
@@ -174,16 +176,16 @@ let value = `<div data-embed-placeholder="1"><script src="https://www.HubSpark.c
                   />}
                 </div>
                 <div className="flex justify-center gap-1">
-                <button
-                  disabled={!!bundle}
-                  onClick={handleShowListWidget}
-                  className={`${!!bundle ? "cursor-not-allowed" : ""} font-bold md:text-lg mt-0 md:mt-4 lg:text-[20px] border px-6 py-2 text-[10px] rounded-xl w-fit text-white text-center bg-[#631363]`}>
-                  Create
-                </button>
+                  <button
+                    disabled={!!bundle}
+                    onClick={handleShowListWidget}
+                    className={`${!!bundle ? "cursor-not-allowed" : ""} font-bold md:text-lg mt-0 md:mt-4 lg:text-[20px] border px-6 py-2 text-[10px] rounded-xl w-fit text-white text-center bg-[#631363]`}>
+                    Create
+                  </button>
                 {bundle &&
                   <CopyWidgetBuilder setIsCopy={setIsCopy} />}
-                  </div>
-                  {isCopy && <PreviewWidgetButton/>}
+                </div>
+                {isCopy && <PreviewWidgetButton />}
               </div>
             </div>
           </div>
@@ -247,11 +249,11 @@ let value = `<div data-embed-placeholder="1"><script src="https://www.HubSpark.c
                 <div className="text-[10px] md:text-lg lg:text-[20px] tracking-[-0.06em] text-[#7F7F7F] text-center">
                   Display reviews in a compact animated carousel.
                 </div>
-                <button
-                  onClick={handleShowCarouselWidget}
+                  <button
+                    onClick={handleShowCarouselWidget}
                   className="font-semibold border mt-0 md:mt-4 px-6 py-2 text-[10px] md:text-lg lg:text-[20px] rounded-xl w-fit text-white text-center bg-[#631363]">
-                  Create
-                </button>
+                    Create
+                  </button>
               </div>
             </div>
           </div>
@@ -270,22 +272,18 @@ let value = `<div data-embed-placeholder="1"><script src="https://www.HubSpark.c
                   JSON Feed
                 </div>
                 {showInput &&
-                  
+
                   <InputBarField textField />
                 }
                 <div className="text-[10px] md:text-xl tracking-[-0.06em] lg:text-[20px] lg:leading-6 px-2 lg:px-0 pt-2 text-[#7F7F7F] text-center">
                   Use just the review data only to completely customize the
                   layout to fit your interface&apos;s code the way you want it
                 </div>
-
-                
-                  <button
-                    onClick={() => setShowInput(true)}
-                    className="font-bold md:text-lg mt-0 lg:mt-4 lg:text-[20px] text-xs border px-6 py-2 rounded-xl w-fit text-white text-center bg-[#631363]">
-                    Create
-                  </button>
-
-               
+                <button
+                  onClick={() => setShowInput(true)}
+                  className="font-bold md:text-lg mt-0 lg:mt-4 lg:text-[20px] text-xs border px-6 py-2 rounded-xl w-fit text-white text-center bg-[#631363]">
+                  Create
+                </button>
               </div>
             </div>
           </div>
