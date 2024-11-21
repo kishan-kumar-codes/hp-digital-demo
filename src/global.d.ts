@@ -41,5 +41,6 @@ export interface WidgetConfig {
   showRatings?: boolean;
   displayMode?: string;
   showAvatar?: boolean;
+  customizeBackground?:any
 }
 

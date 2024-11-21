@@ -33,7 +33,7 @@ const Widget: React.FC<WidgetProps> = ({ config }) => {
 
   return (
     <div className="widget-container">
-      <ReviewList showRatings={config.showRatings} />
+      <ReviewList showRatings={config.showRatings} config={config} />
     </div>
   );
 };
