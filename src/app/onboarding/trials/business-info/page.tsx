@@ -51,8 +51,6 @@ const Trials: NextPage = () => {
     setIsProfileComplete(true);
   };
 
-  console.log("dsdasd", provider);
-
   return (
     <Layout
       hHeading=""

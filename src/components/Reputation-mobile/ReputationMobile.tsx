@@ -65,7 +65,7 @@ const ReputationMobile = () => {
   const profileInfo =
     "By Default all Reputation Mangers reports come with HubSpark Branding. If you create a white-label profile you can brands the reports with you own logo and colors ";
   const emailInfo =
-    "You can publish this report to an external  URL (outside HubSpark.com). This makes it easy to share with clients and others who don't have the login to BrightLocal Reports are publish to an anonyumous URL and can be white-labelled with your existing white-label profile ";
+    "You can publish this report to an external  URL (outside HubSpark.com). This makes it easy to share with clients and others who don't have the login to HubSpark Reports are publish to an anonyumous URL and can be white-labelled with your existing white-label profile ";
 
   return (
     <div className="flex justify-center items-center w-full ">

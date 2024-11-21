@@ -13,6 +13,7 @@ interface ChooseFolder {
   toggleDropDown: boolean;
   onClick: (e: any) => void;
   onToggle: () => void;
+  documents: any;
 }
 
 const ChooseFolder: FC<ChooseFolder> = ({
