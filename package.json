@@ -2,7 +2,7 @@
   "name": "environment",
   "version": "0.1.0",
   "private": true,
- "scripts": {
+  "scripts": {
     "dev": "next dev",
     "build": "next build --no-lint",
     "start": "next start",
@@ -111,9 +111,9 @@
     "url-loader": "^4.1.1",
     "utf-8-validate": "^6.0.3",
     "uuid": "^9.0.0",
+    "webfontloader": "^1.6.28",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4",
-    "webfontloader": "^1.6.28",
     "ws": "^8.13.0",
     "xlsx": "^0.18.5"
   },
@@ -145,10 +145,11 @@
     "jest-fetch-mock": "^3.0.3",
     "nodemon": "^2.0.22",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "style-loader": "^4.0.0",
     "ts-jest": "^29.1.5"
-  } ,
+  },
   "browser": {
     "crypto": false
-}
+  }
 }

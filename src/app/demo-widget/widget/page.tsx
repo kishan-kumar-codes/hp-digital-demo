@@ -17,9 +17,148 @@ const Widget: React.FC = () => {
     (state: RootState) => state.widget.customizeBackground
   );
 
+  const customizeRadius = useSelector(
+    (state: RootState) => state.widget.customizeRadius
+  );
+  const customizeBorder = useSelector(
+    (state: RootState) => state.widget.customizeBorder
+  );
+
+  const customizeSize = useSelector(
+    (state: RootState) => state.widget.customizeSize
+  );
+
+  const displayLayout = useSelector(
+    (state: RootState) => state.widget.noOfLayout
+  );
+  const customizeShadow = useSelector(
+    (state: RootState) => state.widget.customizeShadow
+  );
+
+  const customizeTitleText = useSelector(
+    (state: RootState) => state.widget.customizeTitleText
+  );
+  const customizeWidgetTitle = useSelector(
+    (state: RootState) => state.widget.customizeWidgetTitle
+  );
+  const isFullScreen = useSelector(
+    (state: RootState) => state.widget.isFullScreen
+  );
+  const customizeTextBgColor = useSelector(
+    (state: RootState) => state.widget.customizeTextBackGround 
+  );
+  const displayHeight = useSelector(
+    (state: RootState) => state.widget.layoutWidgetHeight
+  );
+
+  const selectedFonts = useSelector(
+    (state: RootState) => state.widget.customizeFont
+  );
+
+  const noOfReviewsToShows = useSelector(
+    (state: RootState) => state.widget.noofReviewstoShow
+  );
+  const handleSmallScreen = useSelector(
+    (state: RootState) => state.widget.handleSmallScreen
+  );
+
+  const rotateSlides = useSelector(
+    (state: RootState) => state.widget.rotateSlides
+  );
+
+  const transitionStyle = useSelector(
+    (state: RootState) => state.widget.transitionStyle
+  );
+
+  const transitionSpeed = useSelector(
+    (state: RootState) => state.widget.transitionSpeed
+  );
+  const showSlideArrows = useSelector(
+    (state: RootState) => state.widget.showSlideArrows
+  );
+
+  const showSlideDots = useSelector(
+    (state: RootState) => state.widget.showSlideDots
+  );
+
+  const displayReview = useSelector(
+    (state: RootState) => state.widget.displayReview
+  );
+  const designPresetTab = useSelector(
+    (state: RootState) => state.widget.preset
+  );
+
+  const shadowX = useSelector(
+    (state: RootState) => state.widget.shadowX
+  );
+
+  const shadowY = useSelector((state: RootState) => state.widget.shadowY);
+  const shadowBlur = useSelector((state: RootState) => state.widget.shadowBlur);
+  const shadowSpread = useSelector(
+    (state: RootState) => state.widget.shadowSpread
+  );
+  const shadowColor = useSelector(
+    (state: RootState) => state.widget.shadowColor
+  );
+
+  const customizTextAlignment = useSelector(
+    (state: RootState) => state.widget.customizeAlignment
+  );
+
+  const reviewBgColor = useSelector(
+    (state: RootState) => state.widget.setReviewBg
+  );
+  const noOfLayout = useSelector((state: RootState) => state.widget.noOfLayout);
+
+  const cornerRadius = useSelector(
+    (state: RootState) => state.widget.setCornerRadius
+  );
+
+  const showReviewerName = useSelector(
+    (state: RootState) => state.widget.showReviewerName
+  );
+  const showReviewerSiteIcon = useSelector(
+    (state: RootState) => state.widget.showReviewerSiteIcon
+  );
+  const showBusinessDetails = useSelector(
+    (state: RootState) => state.widget.showBusinessDetails
+  );
+
+  const showDateFormat = useSelector(
+    (state: RootState) => state.widget.customizeDate
+  );
+
+  const fontCharacter = useSelector(
+    (state: RootState) => state.widget.fontCharacter
+  );
+  const customizeLinkColor = useSelector(
+    (state: RootState) => state.widget.customizeLinkColor
+  );
+  const isExpanded = useSelector((state: RootState) => state.widget.isExpanded);
+ 
+
+  const setCustomizeShadow = useSelector(
+    (state: RootState) => state.widget.setCustomizeShadow
+  );
 
 
+  const showCaseReview = useSelector(
+    (state: RootState) => state.widget.showCaseReview
+  );
+  const selectReviews = useSelector(
+    (state: RootState) => state.widget.selectReviews
+  );
+  const widgetDesign = useSelector(
+    (state: RootState) => state.widget.widgetDesign
+  );
+  const listWidget = useSelector((state: RootState) => state.widget.listWidget);
+  const carouselWidget = useSelector(
+    (state: RootState) => state.widget.carouselWidget
+  );
   
+
+
+
   useEffect(() => {
     // Fetch the dynamically generated script filename
     fetch("/api/widget/get-widget-filename")
@@ -34,7 +173,7 @@ const Widget: React.FC = () => {
       .catch((error) =>
         console.error("Error fetching widget filename:", error)
       );
-  }, []);
+  }, [scriptLoaded]);
 
   useEffect(() => {
     if (scriptLoaded && window.renderReviewWidget) {
@@ -45,7 +184,45 @@ const Widget: React.FC = () => {
         displayMode: "compact",
         showAvatar: false,
         showRatings: true,
-        customizeBackground:customizeBackground
+        customizeBackground:customizeBackground,
+        customizeRadius:customizeRadius,
+        customizeBorder:customizeBorder,
+        customizeSize:customizeSize,
+        displayLayout:displayLayout,
+        customizeShadow:customizeShadow,
+        setCustomizeShadow:setCustomizeShadow,
+        customizeTitleText:customizeTitleText,
+        customizeWidgetTitle:customizeWidgetTitle,
+        isFullScreen:isFullScreen,
+        customizeTextBgColor:customizeTextBgColor,
+        displayHeight:displayHeight,
+        selectedFonts:selectedFonts,
+        noOfReviewsToShows:noOfReviewsToShows,
+        handleSmallScreen:handleSmallScreen,
+        rotateSlides:rotateSlides,
+        transitionStyle:transitionStyle,
+        transitionSpeed:transitionSpeed,
+        showSlideArrows:showSlideArrows,
+        showSlideDots:showSlideDots,
+        displayReview:displayReview,
+        designPresetTab:designPresetTab,
+        shadowX:shadowX,
+        shadowY:shadowY,
+        shadowBlur:shadowBlur,
+        shadowSpread:shadowSpread,
+        shadowColor:shadowColor,
+        customizTextAlignment:customizTextAlignment,
+        reviewBgColor:reviewBgColor,
+        cornerRadius:cornerRadius,
+        showReviewerName:showReviewerName,
+        showReviewerSiteIcon:showReviewerSiteIcon,
+        showBusinessDetails:showBusinessDetails,
+        showDateFormat:showDateFormat,
+        fontCharacter:fontCharacter,
+        customizeLinkColor:customizeLinkColor,
+        isExpanded:isExpanded,
+        noOfLayout:noOfLayout,
+        carouselWidget:carouselWidget
       });
     }
   }, [scriptLoaded]);

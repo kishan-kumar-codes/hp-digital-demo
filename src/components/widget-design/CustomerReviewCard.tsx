@@ -47,6 +47,7 @@ interface RecentReviewCardProps {
   recent: boolean;
   index: number;
   svgRating: React.ReactElement;
+  config?:any
 }
 
 export const convertDate = (dateStr: string, format: string) => {
@@ -78,6 +79,7 @@ export const CustomerReviewCard = ({
   img,
   des,
   index,
+  config
 }: RecentReviewCardProps): JSX.Element => {
   // Memoizing styles to prevent unnecessary recalculations
   const memoizedSvgRating = useMemo(() => svgRating, [svgRating]);

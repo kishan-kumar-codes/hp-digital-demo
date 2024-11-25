@@ -120,7 +120,7 @@ export default function ShowCaseReview() {
  
   return (
     <div className="bg-[#F4F4F4] min-h-screen">
-       {bundleLoading && <Loader/>}
+       {/* {bundleLoading && <Loader/>} */}
       {showCaseReview && <ShowcaseReview bundle={bundle} bundleLoading={bundleLoading} />}
       {selectReviews && (
         <SelectReviews

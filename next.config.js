@@ -3,13 +3,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  // Disable ESLint during production build
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
     domains: ["www.google.com"],
   },
