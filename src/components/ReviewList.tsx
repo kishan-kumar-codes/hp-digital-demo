@@ -68,6 +68,7 @@ import { Smartphone } from "lucide-react";
 import Review1 from "@/assets/images/hubspark/review1.png";
 import { RecentGoogleIcon } from "@/icons/marketing/icons";
 import { CustomerReviewCard } from "@/components/widget-design/CustomerReviewCard";
+// import { CustomerReviewCard } from "@/components/Reputation-mobile/CustomerReviewCard";
 import { useEffect, useState } from "react";
 import PhoneLayout from "@/components/widget-design/PhoneLayout";
 import { RootState } from "@/store/store";
@@ -105,10 +106,11 @@ const reviewCard = Array.from({ length: 25 }, (_, index) => ({
 
 interface ReviewListProps {
     showRatings?: boolean;
-    config?:any
+    config?:any | null;
 }
 
 const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
+  console.log("config::::::::", config);
     const reviews = useSelector((state: RootState) => state.reviews.reviews);
     const [phoneLayout, setPhoneLayout] = useState("Desktop");
     const dispatch = useDispatch();
@@ -116,9 +118,13 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
     const { showCaseReview, selectReviews, widgetDesign, carouselWidget } =
       useWidgetSelectors();
   
-    // const customizeBackground = useSelector(
-    //   (state: RootState) => state.widget.customizeBackground
-    // );
+useEffect(()=>{
+console.log('I am called from ReviewList');
+},[config])
+
+    const customizeBackground = useSelector(
+      (state: RootState) => state.widget.customizeBackground
+    );
     const customizeRadius = useSelector(
       (state: RootState) => state.widget.customizeRadius
     );
@@ -190,14 +196,14 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
       (state: RootState) => state.widget.displayReview
     );
   
-    const mappedArray = reviewCard.slice(0, config.noOfReviewsToShows);
+    const mappedArray = reviewCard.slice(0, config?.noOfReviewsToShows);
   
-    const smallTextSize = Math.round(config.customizeSize) + 13;
-    const mediumTextSize = Math.round(config.customizeSize) + 26;
-    const smallTextSizeDesc = Math.round(config.customizeSize) + 14;
-    const mediumTextSizeDesc = Math.round(config.customizeSize) + 20;
-    const smallTextSizeRating = Math.round(config.customizeSize) + 15;
-    const mediumTextSizeRating = Math.round(config.customizeSize) + 20;
+    const smallTextSize = Math.round(config?.customizeSize) + 13;
+    const mediumTextSize = Math.round(config?.customizeSize) + 26;
+    const smallTextSizeDesc = Math.round(config?.customizeSize) + 14;
+    const mediumTextSizeDesc = Math.round(config?.customizeSize) + 20;
+    const smallTextSizeRating = Math.round(config?.customizeSize) + 15;
+    const mediumTextSizeRating = Math.round(config?.customizeSize) + 20;
   
     const [api, setApi] = useState<CarouselApi>();
     const [current, setCurrent] = useState(0);
@@ -230,15 +236,15 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
 
         <div
         style={{
-          backgroundColor: config.customizeBackground,
-          borderRadius: `${config.customizeRadius}px`,
+          backgroundColor: config?.customizeBackground,
+          borderRadius: `${config?.customizeRadius}px`,
         }}
-        className={`${config.isFullScreen ? "w-full" : " w-full"} flex-col h-fit md:py-10 py-4 px-1 md:px-4 ${config.customizeShadow ? "shadow-lg shadow-current" : "shadow-none"} ${config.isFullScreen ? "block md:block" : "hidden md:block"}`}>
+        className={`${config?.isFullScreen ? "w-full" : " w-full"} flex-col h-fit md:py-10 py-4 px-1 md:px-4 ${config?.customizeShadow ? "shadow-lg shadow-current" : "shadow-none"} ${config?.isFullScreen ? "block md:block" : "hidden md:block"}`}>
         <div className="flex px-2 md:px-0 justify-between">
           <div
             style={{
-              color: config.customizeTextBgColor,
-              fontFamily: config.selectedFonts,
+              color: config?.customizeTextBgColor,
+              fontFamily: config?.selectedFonts,
               fontSize: smallTextSize,
             }}
             className={` ${phoneLayout === "Phone" ? "hidden" : "flex"} whitespace-nowrap text-xs items-center leading-7 md:text-3xl lg::text-[36px]  py-4 font-bold`}>
@@ -249,20 +255,20 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
                 }
               }
             `}</style>{" "}
-            {config.customizeTitleText}
+            {config?.customizeTitleText}
           </div>
           <div
             style={{
-              color: config.customizeTextBgColor,
-              fontFamily: config.selectedFonts,
+              color: config?.customizeTextBgColor,
+              fontFamily: config?.selectedFonts,
             }}
             className="flex w-full flex-col">
-            {config.displayReview && (
+            {config?.displayReview && (
               <>
                 <div
                   style={{
-                    color: config.customizeTextBgColor,
-                    fontFamily: config.selectedFonts,
+                    color: config?.customizeTextBgColor,
+                    fontFamily: config?.selectedFonts,
                     fontSize: smallTextSizeDesc,
                   }}
                   className={` ${phoneLayout === "Phone" ? "hidden" : "flex"} text-[10px] justify-end md:text-xl lg:text-[24px] pt-2 text-center font-normal leading-5 md:font-bold`}>
@@ -283,8 +289,8 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
                   </div>
                   <span
                     style={{
-                      color: config.customizeTextBgColor,
-                      fontFamily: config.selectedFonts,
+                      color: config?.customizeTextBgColor,
+                      fontFamily: config?.selectedFonts,
                       fontSize: smallTextSizeRating,
                     }}
                     className="text-[10px] md:text-[24px]  font-bold">
@@ -325,9 +331,9 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
             {carouselWidget ? (
               <div className="mx-auto px-10 py-10 max-w-fit">
                 <Carousel
-                  fade={config.transitionStyle}
-                  autoplay={config.rotateSlides}
-                  transitionSpeed={config.transitionSpeed}
+                  fade={config?.transitionStyle}
+                  autoplay={config?.rotateSlides}
+                  transitionSpeed={config?.transitionSpeed}
                   opts={{
                     loop: true,
                     duration: 30,
@@ -340,18 +346,18 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
                         <CarouselItem
                           className={`space-x-2 py-2`}
                           key={index}>
-                          <CustomerReviewCard index={index} {...item} />
+                          <CustomerReviewCard index={index} {...item} config={config} />
                         </CarouselItem>
                       </>
                     ))}
                   </CarouselContent>
-                  {config.showSlideArrows === "yes" && (
+                  {config?.showSlideArrows === "yes" && (
                     <>
                       <CarouselPrevious />
                       <CarouselNext />
                     </>
                   )}
-                  {config.showSlideDots === "yes" && (
+                  {config?.showSlideDots === "yes" && (
                     <div className="py-2 flex gap-2 justify-center items-center text-center text-sm text-muted-foreground">
                       <div
                         onClick={handlePrev}
@@ -365,11 +371,11 @@ const ReviewList: React.FC<ReviewListProps> = ({ showRatings  ,config}) => {
               </div>
             ) : (
               <div
-                className={`py-2 md:py-4 mt-0 md:mt-4 grid overflow-auto auto-cols-min auto-rows-min justify-items-start scrollbar-hide gap-0 md:gap-1 grid-cols-${config.displayLayout} w-full`}
-                style={{ height: `${config.displayHeight}px` }}>
+                className={`py-2 md:py-4 mt-0 md:mt-4 grid overflow-auto auto-cols-min auto-rows-min justify-items-start scrollbar-hide gap-0 md:gap-1 grid-cols-${config?.displayLayout} w-full`}
+                style={{ height: `${config?.displayHeight}px` }}>
                 {mappedArray.map((item, index) => (
                   <div className="w-full h-fit py-2" key={index}>
-                    <CustomerReviewCard index={index} {...item} />
+                    <CustomerReviewCard index={index} {...item} config={config} />
                   </div>
                 ))}
               </div>

@@ -62,5 +62,23 @@ export interface WidgetConfig {
   showSlideArrows?:any;
   showSlideDots?:any;
   displayReview?:any;
+  designPresetTab?:any;
+  shadowX?:any;
+  shadowY?:any;
+  shadowBlur?:any;
+  shadowSpread?:any;
+  shadowColor?:any;
+  customizTextAlignment?:any;
+  reviewBgColor?:any;
+  cornerRadius?:any;
+  showReviewerName?:any;
+  showReviewerSiteIcon?:any;
+  showBusinessDetails?:any;
+  showDateFormat?:any;
+  fontCharacter?:any;
+  customizeLinkColor?:any;
+  isExpanded?:any;
+  noOfLayout?:any;
+  carouselWidget?:any;
 }
 

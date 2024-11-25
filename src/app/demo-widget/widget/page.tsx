@@ -34,9 +34,6 @@ const Widget: React.FC = () => {
   const customizeShadow = useSelector(
     (state: RootState) => state.widget.customizeShadow
   );
-  const setCustomizeShadow = useSelector(
-    (state: RootState) => state.widget.setCustomizeShadow
-  );
 
   const customizeTitleText = useSelector(
     (state: RootState) => state.widget.customizeTitleText
@@ -48,7 +45,7 @@ const Widget: React.FC = () => {
     (state: RootState) => state.widget.isFullScreen
   );
   const customizeTextBgColor = useSelector(
-    (state: RootState) => state.widget.customizeTextBackGround
+    (state: RootState) => state.widget.customizeTextBackGround 
   );
   const displayHeight = useSelector(
     (state: RootState) => state.widget.layoutWidgetHeight
@@ -87,7 +84,78 @@ const Widget: React.FC = () => {
   const displayReview = useSelector(
     (state: RootState) => state.widget.displayReview
   );
+  const designPresetTab = useSelector(
+    (state: RootState) => state.widget.preset
+  );
 
+  const shadowX = useSelector(
+    (state: RootState) => state.widget.shadowX
+  );
+
+  const shadowY = useSelector((state: RootState) => state.widget.shadowY);
+  const shadowBlur = useSelector((state: RootState) => state.widget.shadowBlur);
+  const shadowSpread = useSelector(
+    (state: RootState) => state.widget.shadowSpread
+  );
+  const shadowColor = useSelector(
+    (state: RootState) => state.widget.shadowColor
+  );
+
+  const customizTextAlignment = useSelector(
+    (state: RootState) => state.widget.customizeAlignment
+  );
+
+  const reviewBgColor = useSelector(
+    (state: RootState) => state.widget.setReviewBg
+  );
+  const noOfLayout = useSelector((state: RootState) => state.widget.noOfLayout);
+
+  const cornerRadius = useSelector(
+    (state: RootState) => state.widget.setCornerRadius
+  );
+
+  const showReviewerName = useSelector(
+    (state: RootState) => state.widget.showReviewerName
+  );
+  const showReviewerSiteIcon = useSelector(
+    (state: RootState) => state.widget.showReviewerSiteIcon
+  );
+  const showBusinessDetails = useSelector(
+    (state: RootState) => state.widget.showBusinessDetails
+  );
+
+  const showDateFormat = useSelector(
+    (state: RootState) => state.widget.customizeDate
+  );
+
+  const fontCharacter = useSelector(
+    (state: RootState) => state.widget.fontCharacter
+  );
+  const customizeLinkColor = useSelector(
+    (state: RootState) => state.widget.customizeLinkColor
+  );
+  const isExpanded = useSelector((state: RootState) => state.widget.isExpanded);
+ 
+
+  const setCustomizeShadow = useSelector(
+    (state: RootState) => state.widget.setCustomizeShadow
+  );
+
+
+  const showCaseReview = useSelector(
+    (state: RootState) => state.widget.showCaseReview
+  );
+  const selectReviews = useSelector(
+    (state: RootState) => state.widget.selectReviews
+  );
+  const widgetDesign = useSelector(
+    (state: RootState) => state.widget.widgetDesign
+  );
+  const listWidget = useSelector((state: RootState) => state.widget.listWidget);
+  const carouselWidget = useSelector(
+    (state: RootState) => state.widget.carouselWidget
+  );
+  
 
 
 
@@ -105,7 +173,7 @@ const Widget: React.FC = () => {
       .catch((error) =>
         console.error("Error fetching widget filename:", error)
       );
-  }, []);
+  }, [scriptLoaded]);
 
   useEffect(() => {
     if (scriptLoaded && window.renderReviewWidget) {
@@ -136,7 +204,25 @@ const Widget: React.FC = () => {
         transitionSpeed:transitionSpeed,
         showSlideArrows:showSlideArrows,
         showSlideDots:showSlideDots,
-        displayReview:displayReview
+        displayReview:displayReview,
+        designPresetTab:designPresetTab,
+        shadowX:shadowX,
+        shadowY:shadowY,
+        shadowBlur:shadowBlur,
+        shadowSpread:shadowSpread,
+        shadowColor:shadowColor,
+        customizTextAlignment:customizTextAlignment,
+        reviewBgColor:reviewBgColor,
+        cornerRadius:cornerRadius,
+        showReviewerName:showReviewerName,
+        showReviewerSiteIcon:showReviewerSiteIcon,
+        showBusinessDetails:showBusinessDetails,
+        showDateFormat:showDateFormat,
+        fontCharacter:fontCharacter,
+        customizeLinkColor:customizeLinkColor,
+        isExpanded:isExpanded,
+        noOfLayout:noOfLayout,
+        carouselWidget:carouselWidget
       });
     }
   }, [scriptLoaded]);
