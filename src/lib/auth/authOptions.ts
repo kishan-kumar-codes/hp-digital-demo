@@ -556,8 +556,8 @@ export const authOptions: AuthOptions = ({
             // Define the allowed email addresses for each provider
             const allowedEmails = {
                 credentials: 'demo@gmail.com',
-                google: 'jay@hubspark.com',
-                // google: 'kishan.excel2011@gmail.com',
+                // google: 'jay@hubspark.com',
+                google: 'kishan.excel2011@gmail.com',
                 facebook: 'uzgjdw@hi2.in.com',
             };
 
@@ -565,7 +565,7 @@ export const authOptions: AuthOptions = ({
             if (account && account.provider) {
                 // Check if the provider has an allowed email specified
                 if (allowedEmails.hasOwnProperty(account.provider)) {
-                    const allowedEmail = allowedEmails[account.provider];
+                    const allowedEmail = (allowedEmails as any)[account.provider];
                     if (user.email !== allowedEmail) {
                         console.log(`Access denied for email: ${user.email} with provider: ${account.provider}`);
                         return false; // Redirects to the sign-in page
