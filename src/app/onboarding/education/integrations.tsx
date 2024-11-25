@@ -97,19 +97,25 @@ const Integrations: React.FC = () => {
       {/* Skip and Continue buttons */}
       <div style={{ marginTop: "20px" }}>
         <button
-          onClick={() => {
-            router
-              .push("/onboarding/education/hubspark-number")
-              .catch((error) => console.error("Navigation error:", error));
+          onClick={async () => {
+            try {
+              await router.push("/onboarding/education/hubspark-number");
+              // Optionally, handle successful navigation here if needed
+            } catch (error) {
+              console.error("An error occurred during navigation:", error);
+            }
           }}
           style={{ cursor: "pointer" }}>
           Skip
         </button>
         <button
-          onClick={() => {
-            router
-              .push("/onboarding/education/hubspark-number")
-              .catch((error) => console.error("Navigation error:", error));
+          onClick={async () => {
+            try {
+              await router.push("/onboarding/education/hubspark-number");
+              // Optionally, handle successful navigation here if needed
+            } catch (error) {
+              console.error("An error occurred during navigation:", error);
+            }
           }}
           style={{
             marginLeft: "10px",
