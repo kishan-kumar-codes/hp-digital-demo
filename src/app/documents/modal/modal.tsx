@@ -14,6 +14,8 @@ interface UploadDocumentModalProps {
   newFolderName: string;
   setNewFolderName: (value: string) => void;
   documents: any;
+  setDocuments: any;
+  folders?: any;
 }
 
 const UploadDocumentModal: FC<UploadDocumentModalProps> = ({
