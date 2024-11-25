@@ -36,16 +36,15 @@ export default function Tooltip({
         <div className="flex max-w-xs flex-col items-center shadow-lg">
           {/* <div className="flex clip-bottom h-2 w-4 ml-4 bg-[#631363]"></div> */}
           <div
-  className="flex clip-bottom"
-  style={{
-    width: 0,
-    height: 0,
-    borderLeft: "8px solid transparent", // Left side of the triangle
-    borderRight: "8px solid transparent", // Right side of the triangle
-    borderBottom: "8px solid #631363", // Triangle pointing upward with color
-    marginLeft: "16px", // 
-  }}
-></div>
+            className="flex clip-bottom"
+            style={{
+              width: 0,
+              height: 0,
+              borderLeft: "8px solid transparent", // Left side of the triangle
+              borderRight: "8px solid transparent", // Right side of the triangle
+              borderBottom: "8px solid #631363", // Triangle pointing upward with color
+              marginLeft: "16px", //
+            }}></div>
 
           <div className=" rotate-180 w-[150px] h-full bg-[#631363] p-2 text-center text-xs text-white rounded-xl">
             {message}
@@ -65,11 +64,13 @@ export default function Tooltip({
  *
  * @returns {JSX.Element} The rendered TooltipIcon component.
  */
-export const TooltipIcon = (): JSX.Element => {
+export const TooltipIcon = ({ message }: any): JSX.Element => {
   return (
-    <Tooltip message="This Citation allows you to hide the address.">
+    <Tooltip message={message}>
       <div className="cursor-pointer flex flex-col gap-1 lg:w-[90px]">
-        <span style={Typography} className="text-[9px] lg:text-[16px]">Learn More</span>
+        <span style={Typography} className="text-[9px] lg:text-[16px]">
+          Learn More
+        </span>
         <div className=" ">
           {" "}
           <LineSvgs />
