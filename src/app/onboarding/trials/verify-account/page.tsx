@@ -7,7 +7,6 @@ import Layout from "../../layout";
 // import ProgressBar from "@/pages/onboarding/layout/progressBar";
 import ProgressBar from "../../layout/progressBar";
 import { useClientMediaQuery } from "../../../../utils/srchooksuseClientMediaQuery";
-import DesktopOnboardingVerifyAccount from "../../../onboardingDesktop/trials/verify-account/page";
 import Image from "next/image";
 import hubSparkLogo from "@/assets/images/HubSpark New Logo 5.png";
 
