@@ -7,7 +7,6 @@ import Layout from "../../layout";
 import ProgressBar from "../../layout/progressBar";
 import { MyContext } from "../../../../utils/MyContext";
 import { useClientMediaQuery } from "../../../../utils/srchooksuseClientMediaQuery";
-import DesktopOnboardingPhoneNumber from "../../../onboardingDesktop/trials/input-phone-number/page";
 import Image from "next/image";
 import hubSparkLogo from "@/assets/images/HubSpark New Logo 5.png";
 

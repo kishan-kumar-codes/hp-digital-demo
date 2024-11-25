@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import hubSparkLogo from "@/assets/images/HubSpark New Logo 5.png";
 import { Eye, EyeOff } from "lucide-react";
 import { useClientMediaQuery } from "@/utils/srchooksuseClientMediaQuery";
-import DesktopOnboardingBusinessProfile from "@/app/onboardingDesktop/trials/business-info/page";
 import Profile from "@/app/onboarding/trials/profile";
 import ProgressBar from "../../layout/progressBar";
 
